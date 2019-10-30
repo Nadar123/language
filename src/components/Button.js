@@ -3,14 +3,16 @@ import './style.scss';
 import LanguageContext from './context/LanguageContext';
 
 class Button extends React.Component {
-
+  renderSubmit(language) {
+    return language === 'english' ? 'Submit': 'להצטרפות'
+  }
   render () {
 
     return (
       <div className="btn">
         <button className="ui button primary"> 
           <LanguageContext.Consumer>
-            {(value) => value === 'english' ? 'Submit': 'להצטרפות'}
+            {({ language }) => this.renderSubmit(language)}
           </LanguageContext.Consumer>
         </button>
       </div>
